@@ -1,0 +1,227 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Variables */
+//
+//$primary: rgba(0, 0, 0, 0.5);
+//$secondary: #F08080;
+//$thirdly: #000000;
+//
+//$shadow: rgba(0, 0, 0, 0.25);
+//
+///* Mixins */
+//
+//@mixin size($w: auto, $h: auto) {
+//  width: $w;
+//  height: $h;
+//}
+//
+//@mixin pos($p, $t: auto, $l: auto) {
+//  position: $p;
+//  top: $t;
+//  left: $l;
+//}
+//
+//@mixin flex($j: flex-start, $a: stretch, $d: row, $w: nowrap) {
+//  display: flex;
+//  justify-content: $j;
+//  align-items: $a;
+//  flex-direction: $d;
+//  flex-wrap : $w;
+//}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+///* Variables */
+//
+//$primary: rgba(0, 0, 0, 0.5);
+//$secondary: #F08080;
+//$thirdly: #000000;
+//
+//$shadow: rgba(0, 0, 0, 0.25);
+//
+///* Mixins */
+//
+//@mixin size($w: auto, $h: auto) {
+//  width: $w;
+//  height: $h;
+//}
+//
+//@mixin pos($p, $t: auto, $l: auto) {
+//  position: $p;
+//  top: $t;
+//  left: $l;
+//}
+//
+//@mixin flex($j: flex-start, $a: stretch, $d: row, $w: nowrap) {
+//  display: flex;
+//  justify-content: $j;
+//  align-items: $a;
+//  flex-direction: $d;
+//  flex-wrap : $w;
+//}
+//
+///* Placeholders */
+//
+//%button {
+//  @include pos(relative);
+//
+//  background: transparent;
+//  color: $primary;
+//  outline: none;
+//  border: none;
+//
+//  &:before {
+//    @include pos(absolute, 0, 0);
+//    @include size(100%, 100%);
+//
+//    content: "";
+//  }
+//
+//  &:hover {
+//    color: $secondary;
+//  }
+//}
+//
+///* Base */
+//
+//.wrapper {
+//  @include size(75%, 900px);
+//
+//  margin: 0 auto;
+//
+//  font-family: "Roboto", "Times New Roman", sans-serif;
+//
+//  overflow: hidden;
+//  color: $primary;
+//}
+//
+///* Header */
+//
+//.header {
+//  @include size(100%, 5.3%);
+//  @include flex(space-between, center);
+//
+//  padding: 0 1.25rem;
+//
+//  box-shadow: 0 0 0.625rem $shadow;
+//  color: $thirdly;
+//
+//  &__button-navigation {
+//    @extend %button;
+//  }
+//
+//  &__h1 {
+//    font-size: 1.25rem;
+//  }
+//
+//  &__button-menu {
+//    @extend %button;
+//  }
+//}
+//
+///* Main */
+//
+//.main {
+//  @include flex();
+//  @include size(100%, 94.7%);
+//}
+//
+///* Left block: controls */
+//
+//.adjustments-area {
+//  @include flex(space-evenly, center, column);
+//  @include size(20%, 100%);
+//
+//  padding: 0 1.875rem;
+//}
+//
+//.instruments,
+//.colors {
+//  @include size(100%);
+//
+//  box-shadow: 0 5px 10px $shadow;
+//
+//  &__item {
+//    @include size(100%, 3rem);
+//
+//    padding: 0 1rem;
+//
+//    &:nth-child(2) {
+//      border-bottom: 1px solid $shadow;
+//    }
+//  }
+//
+//  &__button {
+//    @extend %button;
+//
+//    @include flex($a: center);
+//    @include size(100%, 100%);
+//  }
+//
+//  &__name {
+//    padding-left: 2rem;
+//  }
+//}
+//
+///* Right block: canvas */
+//
+//.working-area {
+//  @include flex(center, center);
+//  @include size(80%, 100%);
+//
+//  @include pos(relative);
+//}
+//
+//.resolutions-area {
+//  @include flex(center, center);
+//  @include size(100%, 20%);
+//
+//  @include pos(absolute, 0, 100%);
+//  transform: translateX(-100%);
+//  //margin: 12rem 2rem;
+//}
+//
+//.resolutions{
+//  @include size(auto, 30%);
+//  @include flex(center, center, row);
+//  box-shadow: 0 5px 10px $shadow;
+//  overflow: hidden;
+//
+//  &__item {
+//    @include size(auto, 3rem);
+//    @include flex(center, center);
+//    padding: 0 2rem;
+//
+//
+//    &:nth-child(-n + 4) {
+//      border-right: 1px solid $shadow;
+//    }
+//  }
+//
+//  &__button {
+//    @extend %button;
+//
+//    @include flex(center, center);
+//    @include size(auto, 100%);
+//  }
+//
+//  &__name {
+//    padding-left: 1rem;
+//  }
+//}
+//
+//.canvas {
+//  box-shadow: 0 0 0.625rem $shadow;
+//}
