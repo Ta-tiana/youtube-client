@@ -1,92 +1,82 @@
 import { Injectable } from '@angular/core';
-import {response} from "../object/object";
+import {response} from '../object/object';
 import {SearchResults} from '../models/search-results/search-results.model';
-import {SearchItem} from "../models/search-item/search-item.model";
-
-
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class DataService {
 
-  response: SearchResults = response;
+  public response: SearchResults = response;
 
-  private inputValue: string = '';
-  private sortInputValue: string = '';
-  private clicked: boolean = false;
-  private settingsClicked: boolean = false;
-  private SortByDate: boolean = false;
-  private SortByView: boolean = false;
+  public inputValue: string = '';
+  public sortInputValue: string = '';
+  public clicked: boolean = false;
+  public settingsClicked: boolean = false;
+  public sortByDate: boolean = false;
+  public sortByView: boolean = false;
 
-  constructor() {
-  }
+  constructor() { }
 
-  getResponseValue(): SearchResults {
+   public getResponseValue(): SearchResults {
     return this.response;
   }
 
-  setInputValue(inputValue: string) {
+   public setInputValue(inputValue: string): void {
 
     this.inputValue = inputValue;
-    this.SortByDate = false;
-    this.SortByView = false;
+    this.sortByDate = false;
+    this.sortByView = false;
 
     if (this.inputValue) {
       this.clicked = true;
     }
-
   }
 
-  getInputValue(): string {
+   public getInputValue(): string {
     return this.inputValue;
   }
 
-
-  setSortValue(sortInputValue: string) {
+   public setSortValue(sortInputValue: string): void {
     this.sortInputValue = sortInputValue;
-    this.SortByDate = false;
-    this.SortByView = false;
+    this.sortByDate = false;
+    this.sortByView = false;
   }
 
-  getSortValue(): string {
+   public getSortValue(): string {
     return this.sortInputValue;
   }
 
-
-  setSortByDateClicked() {
-    this.SortByDate = true;
-    this.SortByView = false;
-
+   public setSortByDateClicked(): void {
+    this.sortByDate = true;
+    this.sortByView = false;
   }
 
-  isSortByDateClicked(): boolean {
-    return this.SortByDate;
+   public isSortByDateClicked(): boolean {
+    return this.sortByDate;
   }
 
-  setSortByViewsClicked() {
-    this.SortByView = true;
-    this.SortByDate = false;
+   public setSortByViewsClicked(): void {
+    this.sortByView = true;
+    this.sortByDate = false;
   }
 
-  isSortByViewsClicked(): boolean {
-    return this.SortByView;
+   public isSortByViewsClicked(): boolean {
+    return this.sortByView;
   }
 
-  setSettingsClicked() {
+   public setSettingsClicked(): void {
     this.settingsClicked = !this.settingsClicked;
   }
 
-  isSettingsClicked(): boolean {
+   public isSettingsClicked(): boolean {
     return this.settingsClicked;
   }
 
-  isMainSearchClicked(): boolean {
+   public isMainSearchClicked(): boolean {
     return this.clicked;
   }
-
 }
 
-
-
-export const instanceDataService = new DataService();
+export const instanceDataService: any = new DataService();

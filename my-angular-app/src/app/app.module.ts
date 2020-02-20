@@ -10,7 +10,7 @@ import { SearchItemComponent } from './components/search-item/search-item.compon
 import { SearchComponent } from './components/search/search.component';
 import { FilteredCardsPipe } from './pipes/filtered-cards.pipe';
 import { ReactiveFormsModule } from '@angular/forms';
-import { CoreModule } from "@core/core.module";
+import { CoreModule } from '@core/core.module';
 
 @NgModule({
   declarations: [

@@ -1,47 +1,47 @@
 class ThumbnailsType {
-  url: string;
-  width: number;
-  height: number;
+  public url: string;
+  public width: number;
+  public height: number;
 }
 class SnippetThumbnails {
-  default: ThumbnailsType;
-  medium: ThumbnailsType;
-  high: ThumbnailsType;
-  standard: ThumbnailsType;
-  maxres: ThumbnailsType;
+  public default: ThumbnailsType;
+  public medium: ThumbnailsType;
+  public high: ThumbnailsType;
+  public standard: ThumbnailsType;
+  public maxres: ThumbnailsType;
 }
 
 class SnippetLocalized {
-  title: string;
-  description: string;
+  public title: string;
+  public description: string;
 }
 
 class Snippet {
-  publishedAt: string;
-  channelId: string;
-  title: string;
-  description: string;
-  thumbnails: SnippetThumbnails;
-  channelTitle: string;
-  tags: string[];
-  categoryId: number;
-  liveBroadcastContent: string;
-  localized: SnippetLocalized;
-  defaultAudioLanguage: string;
+  public publishedAt: string;
+  public channelId: string;
+  public title: string;
+  public description: string;
+  public thumbnails: SnippetThumbnails;
+  public channelTitle: string;
+  public tags: string[];
+  public categoryId: number;
+  public liveBroadcastContent: string;
+  public localized: SnippetLocalized;
+  public defaultAudioLanguage: string;
 }
 
 class ItemStatistic {
-  viewCount: number;
-  likeCount: number;
-  dislikeCount: number;
-  favoriteCount: number;
-  commentCount: number;
+  public viewCount: number;
+  public likeCount: number;
+  public dislikeCount: number;
+  public favoriteCount: number;
+  public commentCount: number;
 }
 
 export class SearchItem {
-  kind: string;
-  etag: string;
-  id: string;
-  snippet: Snippet;
-  statistics: ItemStatistic;
+  public kind: string;
+  public etag: string;
+  public id: string;
+  public snippet: Snippet;
+  public statistics: ItemStatistic;
 }

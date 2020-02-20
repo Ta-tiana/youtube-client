@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DataService } from "../service/data.service";
+import { DataService } from '../service/data.service';
 import { ModuleWithProviders } from '@angular/core';
-
 
 @NgModule({
   declarations: [],
@@ -11,7 +10,7 @@ import { ModuleWithProviders } from '@angular/core';
   ]
 })
 export class CoreModule {
-  static forRoot(): ModuleWithProviders {
+  public static forRoot(): ModuleWithProviders {
     return {
       ngModule: CoreModule,
       providers: [
