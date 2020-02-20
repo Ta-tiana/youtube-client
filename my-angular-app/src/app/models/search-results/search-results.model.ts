@@ -1,13 +1,13 @@
-import {SearchItem} from "../search-item/search-item.model";
+import {SearchItem} from '../search-item/search-item.model';
 
 class PageInfo {
-  totalResults: number;
-  resultsPerPage: number;
+  public totalResults: number;
+  public resultsPerPage: number;
 }
 
 export class SearchResults {
-  kind: string;
-  etag: string;
-  pageInfo: PageInfo;
-  items: SearchItem[];
+  public kind: string;
+  public etag: string;
+  public pageInfo: PageInfo;
+  public items: SearchItem[];
 }
