@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-import {response} from '../object/object';
+import {response} from './../../../assets/object/object';
 import {SearchResults} from '../models/search-results/search-results.model';
 
 @Injectable({
   providedIn: 'root'
 })
 
-export class DataService {
+export class YoutubeService {
 
   public response: SearchResults = response;
 
@@ -79,4 +79,4 @@ export class DataService {
   }
 }
 
-export const instanceDataService: any = new DataService();
+export const instanceYoutubeService: any = new YoutubeService();

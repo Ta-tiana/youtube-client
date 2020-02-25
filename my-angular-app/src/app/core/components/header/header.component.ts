@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   `<header class="header">
     <!-- logo -->
     <div class="logo">
-      <img class="logo-item" src="../../../favicon.ico" alt="logo">
+      <img class="logo-item" src="../../../../favicon.ico" alt="logo">
       <span class="youtube-client">&nbsp;Youtube-client</span>
     </div>
     <!--navigation-->

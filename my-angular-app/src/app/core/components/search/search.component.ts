@@ -1,6 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-import {instanceDataService} from '../../service/data.service';
+import { instanceYoutubeService } from '../../../youtube/service/youtube.service';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-search',
@@ -10,6 +11,7 @@ import {instanceDataService} from '../../service/data.service';
     <form class="form" [formGroup] = "newSearchRequest" >
       <input class="main-search-input" type="text" formControlName = "searchRequest"
              placeholder=" What are you want to find out?">
+<!--      <a routerLink="['results']" routerLinkActive="active"></a>-->
       <button class="main-search" (click)="search()">Search</button>
       <button class="settings" (click)="settings()"></button>
     </form>
@@ -39,30 +41,35 @@ export class SearchComponent implements OnInit {
     searchRequest: new FormControl('')
   });
 
-  constructor() { }
+  constructor( public router: Router ) { }
 
   public sortByWord(input: string): void {
-    instanceDataService.setSortValue(input);
+    instanceYoutubeService.setSortValue(input);
    }
 
   public sortByDate(): void  {
-    instanceDataService.setSortByDateClicked();
+    instanceYoutubeService.setSortByDateClicked();
   }
 
   public sortByViews(): void  {
-    instanceDataService.setSortByViewsClicked();
+    instanceYoutubeService.setSortByViewsClicked();
   }
 
   public search(): void  {
-    instanceDataService.setInputValue(this.newSearchRequest.value.searchRequest);
+    this.goToResultsPage();
+    instanceYoutubeService.setInputValue(this.newSearchRequest.value.searchRequest);
   }
 
   public settings(): void {
-    instanceDataService.setSettingsClicked();
+    instanceYoutubeService.setSettingsClicked();
   }
 
   public hide(): object {
-    return { hide: !instanceDataService.isSettingsClicked() };
+    return { hide: !instanceYoutubeService.isSettingsClicked() };
+  }
+
+  public goToResultsPage() {
+     return this.router.navigateByUrl('/results');
   }
 
   public ngOnInit(): void {

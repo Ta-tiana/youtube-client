@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {SearchResults} from '../../models/search-results/search-results.model';
-import {instanceDataService} from '../../service/data.service';
+import {instanceYoutubeService} from '../../service/youtube.service';
 
 @Component({
   selector: 'app-search-results',
@@ -18,12 +18,12 @@ import {instanceDataService} from '../../service/data.service';
 
 export class SearchResultsComponent implements OnInit {
 
-  public response: SearchResults = instanceDataService.getResponseValue();
+  public response: SearchResults = instanceYoutubeService.getResponseValue();
 
   constructor() { }
 
   public isClicked(): boolean {
-    return instanceDataService.isMainSearchClicked();
+    return instanceYoutubeService.isMainSearchClicked();
   }
 
   public ngOnInit(): void {

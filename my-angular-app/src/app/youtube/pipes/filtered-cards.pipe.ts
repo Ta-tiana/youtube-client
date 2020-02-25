@@ -1,7 +1,7 @@
 import {Pipe, PipeTransform} from '@angular/core';
 import {SearchResults} from '../models/search-results/search-results.model';
-import {instanceDataService} from '../service/data.service';
-import {response} from '../object/object';
+import {instanceYoutubeService} from '../service/youtube.service';
+import {response} from '../../../assets/object/object';
 
 @Pipe( {
   name: 'filteredCards',
@@ -13,54 +13,54 @@ export class FilteredCardsPipe implements PipeTransform {
 
   public transform( allCards: response.items[] ): SearchResults['items'] {
 
-    if ( instanceDataService.isSortByDateClicked() ) {
-      if ( instanceDataService.getSortValue() ) {
+    if ( instanceYoutubeService.isSortByDateClicked() ) {
+      if ( instanceYoutubeService.getSortValue() ) {
         return allCards.filter( card => card.snippet.tags.join()
-          .indexOf( instanceDataService.getInputValue() ) !== -1 )
+          .indexOf( instanceYoutubeService.getInputValue() ) !== -1 )
           .filter( card => card.snippet.title.toLowerCase().
-          indexOf( instanceDataService.getSortValue() ) !== -1 )
+          indexOf( instanceYoutubeService.getSortValue() ) !== -1 )
           .sort((dateCard1, dateCard2) => (
             Date.parse( dateCard1.snippet.publishedAt ) - Date.parse( dateCard2.snippet.publishedAt )
-          ));
+          )).reverse();
       }
       return allCards.filter( card => card.snippet.tags.join().
-      indexOf( instanceDataService.getInputValue() ) !== -1 )
+      indexOf( instanceYoutubeService.getInputValue() ) !== -1 )
         .sort((dateCard1, dateCard2) => (
             Date.parse( dateCard1.snippet.publishedAt ) - Date.parse( dateCard2.snippet.publishedAt )
         )
-      );
+      ).reverse();
     }
 
-    if ( instanceDataService.isSortByViewsClicked() ) {
-      if ( instanceDataService.getSortValue() ) {
+    if ( instanceYoutubeService.isSortByViewsClicked() ) {
+      if ( instanceYoutubeService.getSortValue() ) {
         return allCards.filter( card => card.snippet.tags.join()
-          .indexOf( instanceDataService.getInputValue() ) !== -1 )
+          .indexOf( instanceYoutubeService.getInputValue() ) !== -1 )
           .filter( card => card.snippet.title.toLowerCase()
-            .indexOf(instanceDataService.getSortValue() ) !== -1 )
+            .indexOf(instanceYoutubeService.getSortValue() ) !== -1 )
           .sort((viewCard1, viewCard2) => (
             +viewCard1.statistics.viewCount - +viewCard2.statistics.viewCount
           )
-        );
+        ).reverse();
       }
 
       return allCards.filter( card => card.snippet.tags.join()
-        .indexOf( instanceDataService.getInputValue() ) !== -1 )
+        .indexOf( instanceYoutubeService.getInputValue() ) !== -1 )
         .sort((viewCard1, viewCard2) => (
             +viewCard1.statistics.viewCount - +viewCard2.statistics.viewCount
         )
-      );
+      ).reverse();
     }
 
-    if ( instanceDataService.getSortValue() ) {
+    if ( instanceYoutubeService.getSortValue() ) {
 
       return allCards.filter( card => card.snippet.tags.join()
-        .indexOf( instanceDataService.getInputValue() ) !== -1 )
+        .indexOf( instanceYoutubeService.getInputValue() ) !== -1 )
         .filter( card => card.snippet.title.toLowerCase()
-          .indexOf(instanceDataService.getSortValue() ) !== -1
+          .indexOf(instanceYoutubeService.getSortValue() ) !== -1
       );
     }
 
     return allCards.filter( card => card.snippet.tags.join()
-      .indexOf( instanceDataService.getInputValue() ) !== -1);
+      .indexOf( instanceYoutubeService.getInputValue() ) !== -1);
   }
 }
