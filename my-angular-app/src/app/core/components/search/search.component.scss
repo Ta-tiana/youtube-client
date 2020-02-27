@@ -3,7 +3,6 @@
     flex-direction: column;
     justify-content: space-between;
     width: 100%;
-    height: 175px;
   }
 
   .main-search{
@@ -19,7 +18,7 @@
   .settings {
     width: 24px;
     height: 24px;
-    border:1px solid #2F80ED;
+    border: 0.9px solid #2F80ED;
     color: #FFFFFF;
     background-color: #2F80ED;
     border-radius: 5px;
@@ -31,9 +30,8 @@
     margin-left: 5px;
   }
 
-
   .main-search:hover,
-  .settings:hover,
+  .settings:hover
   {
     border:1px solid #0580ED;
     color: #FFFFFF;
@@ -89,6 +87,7 @@
     height: 50px;
     width: 100%;
     background: #E5E5E5;
+    margin-top: 45px;
   }
 
   .sorting-type{
@@ -117,7 +116,92 @@
     display:none;
   }
 
+  .record-set{
+    display: flex;
+    justify-content: flex-end;
+    width: 30%;
+    margin-right: 10px;
+  }
 
+  .search-set{
+    display: flex;
+    justify-content: center;
+  }
 
+  .user-set{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 30%;
+    margin-left: 10px;
+  }
 
+  .movie {
+    width: 50px;
+    height: 35px;
+    border:1px solid #2F80ED;
+    color: #FFFFFF;
+    //background-color: #2F80ED;
+    border-radius: 10px;
+    box-shadow: 2px 0 3px 0 rgba(47, 128, 237, 0.48);
+    background-image: url(../../../../assets/images/movie.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-left: 5px;
+    outline: none;
+  }
 
+  .log-out{
+    width: 60px;
+    height: 24px;
+    border:1px solid #2F80ED;
+    color: #FFFFFF;
+    background-color: #2F80ED;
+    border-radius: 5px;
+    box-shadow: 2px 0 3px 0 rgba(47, 128, 237, 0.48);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-right: 10px;
+    outline: none;
+  }
+
+  .user-settings{
+    width: 19.2px;
+    height: 19.2px;
+    border:1px solid #2F80ED;
+    color: #FFFFFF;
+    background-color: #2F80ED;
+    border-radius: 5px;
+    box-shadow: 2px 0 3px 0 rgba(47, 128, 237, 0.48);
+    background-image: url(../../../../assets/images/user.png);
+    background-size: 120%;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-left: 5px;
+    outline: none;
+    padding:0;
+  }
+
+  .movie:hover,
+  .user-settings:hover,
+  .log-out:hover
+  {
+    border:1px solid #0580ED;
+    color: #FFFFFF;
+    box-shadow: 2px 0 3px 0 rgba(5, 128, 237, 0.48);
+    outline: none;
+    cursor: pointer;
+  }
+
+  .movie:active,
+  .user-settings:active,
+  .log-out:active
+  {
+    border:1px solid #27AE60;
+    color: #FFFFFF;
+    outline: none;
+    box-shadow: 2px 0 3px 0 rgba(39, 174, 96, 0.48);
+    cursor: pointer;
+  }

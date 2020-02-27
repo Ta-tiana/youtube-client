@@ -77,15 +77,14 @@
   width:100%;
   height:5px;
   background: #2F80ED;
-  border-radius: 5px;
-
+  border-radius: 0 0 5px 5px;
 }
 
 .green{
   width:100%;
   height:5px;
   background:  #27AE60;
-  border-radius: 5px;
+  border-radius: 0 0 5px 5px;
 }
 
 .red{
@@ -93,7 +92,6 @@
   height:5px;
   background: #ED4A3A;
   border-radius: 0 0 5px 5px;
-
 }
 
 .yellow{
@@ -101,5 +99,4 @@
   height:5px;
   background: #EDE745;
   border-radius: 0 0 5px 5px;
-
 }

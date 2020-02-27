@@ -1,19 +1,29 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { instanceYoutubeService } from '../../../youtube/service/youtube.service';
-import {Router} from "@angular/router";
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-search',
   template:
   `<div class="search">
-    <!-- main-search -->
     <form class="form" [formGroup] = "newSearchRequest" >
-      <input class="main-search-input" type="text" formControlName = "searchRequest"
-             placeholder=" What are you want to find out?">
-<!--      <a routerLink="['results']" routerLinkActive="active"></a>-->
-      <button class="main-search" (click)="search()">Search</button>
-      <button class="settings" (click)="settings()"></button>
+      <!-- play-movie-->
+      <div class="record-set">
+        <button class="movie" (click)="record()"></button>
+      </div>
+      <!-- main-search -->
+      <div class="search-set">
+        <input class="main-search-input" type="text" formControlName = "searchRequest"
+               placeholder=" What are you want to find out?">
+        <button class="main-search" (click)="search()">Search</button>
+        <button class="settings" (click)="settings()"></button>
+      </div>
+      <!-- user-settings -->
+      <div class="user-set">
+        <button class="log-out" (click)="logOut()">Log-out</button>
+        <button class="user-settings" (click)="userSettings()"></button>
+      </div>
     </form>
     <!-- sort-search -->
     <div class="sorting" [ngClass] = this.hide()>
@@ -36,8 +46,7 @@ import {Router} from "@angular/router";
 export class SearchComponent implements OnInit {
 
   public newSortRequest: string = '';
-
-  public newSearchRequest: any = new FormGroup({
+  public newSearchRequest: any = new FormGroup ({
     searchRequest: new FormControl('')
   });
 
@@ -56,8 +65,8 @@ export class SearchComponent implements OnInit {
   }
 
   public search(): void  {
-    this.goToResultsPage();
     instanceYoutubeService.setInputValue(this.newSearchRequest.value.searchRequest);
+    this.router.navigateByUrl('/results').then(r => console.log(r));
   }
 
   public settings(): void {
@@ -68,8 +77,15 @@ export class SearchComponent implements OnInit {
     return { hide: !instanceYoutubeService.isSettingsClicked() };
   }
 
-  public goToResultsPage() {
-     return this.router.navigateByUrl('/results');
+  public record(): void {
+  }
+
+  public userSettings(): void {
+  }
+
+  public logOut(): void {
+    localStorage.removeItem('token');
+    this.router.navigateByUrl(`auth/login`).then(r => console.log(r));
   }
 
   public ngOnInit(): void {
