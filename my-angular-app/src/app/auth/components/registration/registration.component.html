@@ -1,0 +1,27 @@
+<div class="registration-form">
+  <h3>Registration</h3>
+  <form method="post" #myRegForm="ngForm" action="#">
+    <div>
+      <label>First name</label><br>
+      <input aria-label="f-name" class="f-name" type="text" name="first-name" required>
+    </div>
+    <div>
+      <label>Last name</label><br>
+      <input aria-label="l-name" class="l-name" type="text" name="last-name" required>
+    </div>
+    <div>
+      <label>Mail</label><br>
+      <input aria-label="email" class="email"type="email" name="mail" ngModel
+             required email>
+    </div>
+    <div>
+      <label>Password</label><br>
+      <input aria-label="pass" class="pass"type="password" name="password" required>
+    </div>
+  </form>
+  <div class="auth-buttons">
+    <button class="login" (click)="goToLogin()">Login</button>
+    <button class="registration" (click)="SignIn(myRegForm)" >Registration</button>
+  </div>
+</div>
+

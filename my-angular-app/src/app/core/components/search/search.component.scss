@@ -1,0 +1,207 @@
+  .search{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .main-search{
+    width: 80px;
+    height: 24px;
+    border:1px solid #2F80ED;
+    color: #FFFFFF;
+    background: #2F80ED;
+    border-radius: 0 5px 5px 0;
+    box-shadow: 2px 0 3px 0 rgba(47, 128, 237, 0.48);
+  }
+
+  .settings {
+    width: 24px;
+    height: 24px;
+    border: 0.9px solid #2F80ED;
+    color: #FFFFFF;
+    background-color: #2F80ED;
+    border-radius: 5px;
+    box-shadow: 2px 0 3px 0 rgba(47, 128, 237, 0.48);
+    background-image: url(../../../../assets/images/settings.png);
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-left: 5px;
+  }
+
+  .main-search:hover,
+  .settings:hover
+  {
+    border:1px solid #0580ED;
+    color: #FFFFFF;
+    background-color: #0580ED;
+    cursor: pointer;
+  }
+
+  .main-search:active,
+  .settings:active
+  {
+    border:1px solid #27AE60;
+    color: #FFFFFF;
+    background-color: #27AE60;
+    cursor: pointer;
+  }
+
+  .main-search-input{
+    width: 396px;
+    height: 20px;
+    border:1px solid #EFEFEF;
+    background: #EFEFEF
+  }
+
+  .sort-search-input {
+    width: 149px;
+    height: 10px;
+    border:1px solid #FFFFFF;
+    background: #FFFFFF;
+  }
+
+  .main-search-input::-webkit-input-placeholder {
+    color: #c2c2c2;
+  }
+
+  .main-search-input:focus::-webkit-input-placeholder {
+    color: transparent;
+  }
+
+  .form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80px;
+    width: 100%;
+    background: #E5E5E5;
+  }
+
+  .sorting{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    height: 50px;
+    width: 100%;
+    background: #E5E5E5;
+    margin-top: 45px;
+  }
+
+  .sorting-type{
+    display: flex;
+  }
+  .sort {
+    color: #929292;
+  }
+
+  .sorting-type:hover {
+    cursor:pointer
+  }
+
+  .views,
+  .date {
+    text-decoration: underline;
+    color: #2F80ED;
+    cursor:pointer
+  }
+
+  .word {
+    color: #2F80ED;
+  }
+
+  .hide{
+    display:none;
+  }
+
+  .record-set{
+    display: flex;
+    justify-content: flex-end;
+    width: 30%;
+    margin-right: 10px;
+  }
+
+  .search-set{
+    display: flex;
+    justify-content: center;
+  }
+
+  .user-set{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 30%;
+    margin-left: 10px;
+  }
+
+  .movie {
+    width: 50px;
+    height: 35px;
+    border:1px solid #2F80ED;
+    color: #FFFFFF;
+    //background-color: #2F80ED;
+    border-radius: 10px;
+    box-shadow: 2px 0 3px 0 rgba(47, 128, 237, 0.48);
+    background-image: url(../../../../assets/images/movie.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-left: 5px;
+    outline: none;
+  }
+
+  .log-out{
+    width: 60px;
+    height: 24px;
+    border:1px solid #2F80ED;
+    color: #FFFFFF;
+    background-color: #2F80ED;
+    border-radius: 5px;
+    box-shadow: 2px 0 3px 0 rgba(47, 128, 237, 0.48);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-right: 10px;
+    outline: none;
+  }
+
+  .user-settings{
+    width: 19.2px;
+    height: 19.2px;
+    border:1px solid #2F80ED;
+    color: #FFFFFF;
+    background-color: #2F80ED;
+    border-radius: 5px;
+    box-shadow: 2px 0 3px 0 rgba(47, 128, 237, 0.48);
+    background-image: url(../../../../assets/images/user.png);
+    background-size: 120%;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-left: 5px;
+    outline: none;
+    padding:0;
+  }
+
+  .movie:hover,
+  .user-settings:hover,
+  .log-out:hover
+  {
+    border:1px solid #0580ED;
+    color: #FFFFFF;
+    box-shadow: 2px 0 3px 0 rgba(5, 128, 237, 0.48);
+    outline: none;
+    cursor: pointer;
+  }
+
+  .movie:active,
+  .user-settings:active,
+  .log-out:active
+  {
+    border:1px solid #27AE60;
+    color: #FFFFFF;
+    outline: none;
+    box-shadow: 2px 0 3px 0 rgba(39, 174, 96, 0.48);
+    cursor: pointer;
+  }

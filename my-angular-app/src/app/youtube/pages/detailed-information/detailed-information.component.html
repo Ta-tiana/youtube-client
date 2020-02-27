@@ -1,0 +1,30 @@
+<div class="card-wrapper">
+  <button class="back"></button>
+  <div class="card-info" [ngClass] = getCardColor()>
+    <!-- card-image -->
+    <div class="card-image">
+      <img src="{{ card.snippet.thumbnails.maxres.url }}" alt="img" >
+    </div>
+    <!-- card-description -->
+    <div class="card-description">
+      <div>
+        <div>
+          <p>{{getNameOfWeekDay()}} {{month}} {{date}} {{year}}</p>
+          <h4 bold class="card-title">{{card['snippet']['title']}}</h4>
+        </div>
+        <div>
+          <p bold class="card-description-header">Description:</p>
+          <p class="card-description-text">{{card['snippet']['description'].length > 1000 ?
+            card['snippet']['description'].slice(0,1200) + " ...": card['snippet']['description'] }}</p>
+        </div>
+      </div>
+      <!-- card-statistic -->
+      <div class="card-statistic">
+        <span><img src="../../../../assets/images/viewed-s.png" alt=""> {{card['statistics']['viewCount']}}&nbsp;</span>
+        <span><img src="../../../../assets/images/liked-s.png" alt=""> {{card['statistics']['likeCount']}}&nbsp;</span>
+        <span><img src="../../../../assets/images/dislike-s.png" alt=""> {{card['statistics']['dislikeCount']}}&nbsp;</span>
+        <span><img src="../../../../assets/images/group-s.png" alt=""> {{card['statistics']['commentCount']}}&nbsp;</span>
+      </div>
+    </div>
+  </div>
+</div>
