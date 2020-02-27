@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {SearchItem} from '../../models/search-item/search-item.model';
+import {instanceYoutubeService} from '../../service/youtube.service';
 
 @Component({
   selector: 'app-detailed-information',
@@ -7,9 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetailedInformationComponent implements OnInit {
 
+  public date: string = instanceYoutubeService.getDateValue();
+  public month: string = instanceYoutubeService.getMonthValue();
+  public year: string = instanceYoutubeService.getYearValue();
+  public numberOfWeekDay: number = instanceYoutubeService.getWeekDayInNumberValue();
+  public card: SearchItem = instanceYoutubeService.getCardDataValue();
+
   constructor() { }
 
-  ngOnInit(): void {
+  public getNameOfWeekDay(): string {
+    return instanceYoutubeService.getWeekDayInStringValue(this.numberOfWeekDay);
   }
 
+  public getCardColor(): object {
+    instanceYoutubeService.setPublishedTimeValue(this.card);
+    return instanceYoutubeService.getColorByTimeValue();
+  }
+
+  public ngOnInit(): void {
+  }
 }
