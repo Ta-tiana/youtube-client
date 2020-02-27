@@ -1,1 +1,17 @@
-<p>login works!</p>
+<div class="login-form">
+  <h3>Login</h3>
+  <form id="log-form" #myLogForm="ngForm" method="post" action="#">
+    <div>
+      <label>Login</label><br>
+      <input aria-label="login" class="nick" type="text" name="nick-name" required>
+    </div>
+    <div>
+      <label>Password</label><br>
+      <input aria-label="pass" class="password" type="password" name="password" required>
+    </div>
+  </form>
+  <div class="auth-buttons">
+    <button class="registration" (click)="goToRegistration()">Registration</button>
+    <button class="login" (click)="logIn(myLogForm)" >Login</button>
+  </div>
+</div>
