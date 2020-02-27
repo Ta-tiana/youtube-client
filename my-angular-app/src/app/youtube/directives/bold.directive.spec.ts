@@ -1,8 +1,9 @@
-import { YoutubeDirective } from './youtube.directive';
+import { BoldDirective } from './bold.directive';
 
 describe('SharedDirective', () => {
   it('should create an instance', () => {
-    const directive = new YoutubeDirective();
+    // @ts-ignore
+    const directive = new BoldDirective();
     expect(directive).toBeTruthy();
   });
 });
