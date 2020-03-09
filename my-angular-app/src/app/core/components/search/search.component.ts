@@ -1,27 +1,33 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormControl } from '@angular/forms';
 import { instanceYoutubeService } from '../../../youtube/service/youtube.service';
 import {Router} from '@angular/router';
+import {Observable} from 'rxjs';
+import {debounceTime, scan, filter, tap} from 'rxjs/operators';
+import {HttpSService} from '../../../youtube/service/http-s.service';
+import { AuthService } from 'src/app/auth/services/auth.service';
 
 @Component({
   selector: 'app-search',
   template:
   `<div class="search">
-    <form class="form" [formGroup] = "newSearchRequest" >
+      <form class="form">
       <!-- play-movie-->
       <div class="record-set">
         <button class="movie" (click)="record()"></button>
       </div>
       <!-- main-search -->
       <div class="search-set">
-        <input class="main-search-input" type="text" formControlName = "searchRequest"
-               placeholder=" What are you want to find out?">
-        <button class="main-search" (click)="search()">Search</button>
+        <input class="main-search-input" type="text" [formControl] = "searchRequest"
+         (ngModelChange)="redirectMainSearch()"
+         (keyup.enter)="keyDownFunction()"
+         placeholder=" What are you want to find out?">
         <button class="settings" (click)="settings()"></button>
       </div>
       <!-- user-settings -->
       <div class="user-set">
-        <button class="log-out" (click)="logOut()">Log-out</button>
+        <button class="log-in" *ngIf="isLogged() === false" (click)="login()">Log-in</button>
+        <button class="log-out" *ngIf="isLogged() === true" (click)="logOut()">Log-out</button>
         <button class="user-settings" (click)="userSettings()"></button>
       </div>
     </form>
@@ -46,11 +52,17 @@ import {Router} from '@angular/router';
 export class SearchComponent implements OnInit {
 
   public newSortRequest: string = '';
-  public newSearchRequest: any = new FormGroup ({
-    searchRequest: new FormControl('')
-  });
+  public searchRequest = new FormControl();
+  public searchValue$: Observable<any>;
+  // public tokenKey:string = 'AIzaSyAvLz_fz5MGD_cxjOFrAz78mwwqvCAOBnk';
+  // public tokenKey:string = 'AIzaSyDqCcrfVpftL9ADlZNNQ2Qxaer7EEOwHPU';
+  // public tokenKey:string = 'AIzaSyCmVvW-G71IALwdJ7022x-eAa-keac80pc';
+  // public tokenKey:string = 'AIzaSyA7gD3q9-JIr8YWIuS_joeMPkSuw_lcI-4';
+  // public tokenKey:string = 'AIzaSyCPDt9vha-8RV3SpAif4Px643j37p1ZijQ';
+  public tokenKey: string = 'AIzaSyAApg64zhDrkCMUi3ZdR2eyv-N0yX4RNIM';
+  public searchKey: string = '';
 
-  constructor( public router: Router ) { }
+  constructor(public router: Router, private httpService: HttpSService,  private authService: AuthService) {}
 
   public sortByWord(input: string): void {
     instanceYoutubeService.setSortValue(input);
@@ -64,8 +76,28 @@ export class SearchComponent implements OnInit {
     instanceYoutubeService.setSortByViewsClicked();
   }
 
-  public search(): void  {
-    instanceYoutubeService.setInputValue(this.newSearchRequest.value.searchRequest);
+  public keyDownFunction(): void {
+   this.redirectMainSearch();
+  }
+
+  public redirectMainSearch(): void  {
+    console.log(2);
+    console.log(this.searchRequest.value);
+    instanceYoutubeService.setInputValue(this.searchRequest.value);
+
+    this.searchValue$ = this.searchRequest.valueChanges.pipe(
+      filter((query) => query.length > 3 ),
+      tap(t => console.log(t)),
+      debounceTime(500),
+      // startWith(this.current), // initial value
+      // tap(t => console.log(t))
+      scan((acc, typingValue) => typingValue ? acc.concat(typingValue) : [], []),
+    );
+
+    this.searchValue$.subscribe(x => {
+      this.httpService.g(x, this.tokenKey);
+    });
+
     this.router.navigateByUrl('/results').then(r => console.log(r));
   }
 
@@ -85,9 +117,17 @@ export class SearchComponent implements OnInit {
 
   public logOut(): void {
     localStorage.removeItem('token');
+  }
+
+  public login(): void {
     this.router.navigateByUrl(`auth/login`).then(r => console.log(r));
   }
 
+  public isLogged(): boolean {
+    return this.authService.isTokenExist('token');
+  }
+
   public ngOnInit(): void {
+
   }
 }

@@ -3,7 +3,7 @@
   <div class="card-info" [ngClass] = getCardColor()>
     <!-- card-image -->
     <div class="card-image">
-      <img src="{{ card.snippet.thumbnails.maxres.url }}" alt="img" >
+      <img src="{{getUrl()}}" alt="img" >
     </div>
     <!-- card-description -->
     <div class="card-description">
@@ -14,8 +14,9 @@
         </div>
         <div>
           <p bold class="card-description-header">Description:</p>
-          <p class="card-description-text">{{card['snippet']['description'].length > 1000 ?
-            card['snippet']['description'].slice(0,1200) + " ...": card['snippet']['description'] }}</p>
+          <p class="card-description-text">{{card['snippet']['description'] }}</p>
+<!--          .length > 1000 ?-->
+<!--          card['snippet']['description'].slice(0,1000) + " ...": card['snippet']['description']-->
         </div>
       </div>
       <!-- card-statistic -->

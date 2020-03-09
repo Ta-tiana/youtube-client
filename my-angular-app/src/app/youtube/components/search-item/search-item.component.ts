@@ -14,17 +14,17 @@ import { instanceYoutubeService } from '../../service/youtube.service';
       <!-- card-statistic -->
       <div class="details-statistic">
         <img src="../../../../assets/images/viewed.png" alt="">
-        <span>&nbsp;{{itemData['statistics']['viewCount']}}&nbsp;</span>
+        <span>&nbsp;{{getString(itemData['statistics']['viewCount'])}}&nbsp;</span>
         <img src="../../../../assets/images/liked.png" alt="">
-        <span>&nbsp;{{itemData['statistics']['likeCount']}}&nbsp;</span>
+        <span>&nbsp;{{getString(itemData['statistics']['likeCount'])}}&nbsp;</span>
         <img src="../../../../assets/images/dislike.png" alt="">
-        <span>&nbsp;{{itemData['statistics']['dislikeCount']}}&nbsp;</span>
+        <span>&nbsp;{{getString(itemData['statistics']['dislikeCount'])}}&nbsp;</span>
         <img src="../../../../assets/images/group.png" alt="">
-        <span>&nbsp;{{itemData['statistics']['commentCount']}}&nbsp;</span>
+        <span>&nbsp;{{getString(itemData['statistics']['commentCount'])}}&nbsp;</span>
        </div>
       <!--card-title -->
        <div class="details-title">
-         <p>{{itemData['snippet']['title']}}</p>
+         <p style="text-overflow: ellipsis;">{{itemData['snippet']['title']}}</p>
        </div>
       <!-- card-button-->
     </div> <div class="details-more">
@@ -42,7 +42,7 @@ export class SearchItemComponent implements OnInit {
   @Input()  public itemData: SearchItem;
   public cardId: string;
 
-  constructor( private router: Router ) { }
+  constructor( private router: Router) { }
 
   public getColor(): object {
     instanceYoutubeService.setPublishedTimeValue(this.itemData);
@@ -53,6 +53,16 @@ export class SearchItemComponent implements OnInit {
     instanceYoutubeService.setCardDataValue(this.itemData);
     this.cardId = this.itemData.id;
     this.router.navigateByUrl(`results/${this.cardId}`).then(r => console.log(r)) ;
+  }
+
+  public getString(value: number): string {
+    const str: string = String(value);
+
+    if (str === 'undefined') {
+      return '0';
+    }
+
+    return str.length > 3 ? str.slice(0, -3) + 'K' : str;
   }
 
   public ngOnInit(): void {

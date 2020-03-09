@@ -26,6 +26,10 @@ export class DetailedInformationComponent implements OnInit {
     return instanceYoutubeService.getColorByTimeValue();
   }
 
+  public getUrl(): string {
+    return this.card.snippet.thumbnails.high.url;
+  }
+
   public ngOnInit(): void {
   }
 }
