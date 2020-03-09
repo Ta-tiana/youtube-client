@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
     ) { }
 
   public goToRegistration(): void {
-    this.router.navigateByUrl(`auth/registration`).then(r => console.log(r)) ;
+    this.router.navigateByUrl(`auth/registration`).then(r => (r)) ;
   }
 
   public logIn(form: any): void {
@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
     if (this.loginService.isInfoEqual()) {
       alert(`Добро пожаловать, ${this.loginService.regFName}!`);
       this.authService.setToken();
-      this.router.navigateByUrl(``).then(r => console.log(r)) ;
+      this.router.navigateByUrl(``).then(r => (r)) ;
     } else {
       alert(` ${this.loginService.regPassword ? 'Неверный пароль! псс..пароль: ' +
         this.loginService.regPassword : 'Пользователь не найден!' } ` );

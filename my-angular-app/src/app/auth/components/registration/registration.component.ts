@@ -12,7 +12,7 @@ export class RegistrationComponent implements OnInit {
   constructor( private router: Router, public loginService: LoginService) { }
 
   public goToLogin(): void {
-    this.router.navigateByUrl(`auth/login`).then(r => console.log(r) ) ;
+    this.router.navigateByUrl(`auth/login`).then(r => (r) ) ;
   }
 
   public SignIn(form: any): void {
@@ -25,7 +25,7 @@ export class RegistrationComponent implements OnInit {
     );
     if (this.loginService.isRegFromFilled()) {
       alert('Вы зарегистрированы! Введите свой логин и пароль!');
-      this.router.navigateByUrl(`auth/login`).then(r => console.log(r)) ;
+      this.router.navigateByUrl(`auth/login`).then(r => (r)) ;
     }
   }
 

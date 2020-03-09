@@ -13,7 +13,8 @@ export class AuthService {
   }
 
   public isTokenExist(token: string): boolean {
-    return Boolean(localStorage.getItem('token'));
+    return Boolean(localStorage.getItem(token));
+
   }
 
   public setToken(): void {

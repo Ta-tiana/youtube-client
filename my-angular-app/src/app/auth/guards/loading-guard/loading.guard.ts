@@ -15,7 +15,7 @@ export class LoadingGuard implements CanLoad {
     segments: UrlSegment[]): Observable<boolean> | Promise<boolean> | boolean {
 
     if (!this.authService.isRegistered()) {
-      this.router.navigate(['']).then(r => console.log(r));
+      this.router.navigate(['']).then(r => (r));
       return false;
     }
     return true;

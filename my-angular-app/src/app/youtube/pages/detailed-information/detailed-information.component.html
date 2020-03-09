@@ -14,9 +14,8 @@
         </div>
         <div>
           <p bold class="card-description-header">Description:</p>
-          <p class="card-description-text">{{card['snippet']['description'] }}</p>
-<!--          .length > 1000 ?-->
-<!--          card['snippet']['description'].slice(0,1000) + " ...": card['snippet']['description']-->
+          <span class="card-description-text">{{card['snippet']['description'].length > 1000
+              ? card['snippet']['description'].slice(0,1000) + " ...": card['snippet']['description']}}</span>
         </div>
       </div>
       <!-- card-statistic -->

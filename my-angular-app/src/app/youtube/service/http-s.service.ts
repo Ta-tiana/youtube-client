@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {SearchResults} from '../models/search-results/search-results.model';
-import {YoutubeService} from './youtube.service';
+import { HttpClient } from '@angular/common/http';
+import { SearchResults } from '../models/search-results/search-results.model';
+import { YoutubeService } from './youtube.service';
+import { AuthService } from 'src/app/auth/services/auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ import {YoutubeService} from './youtube.service';
 export class HttpSService {
   public responseItems: SearchResults;
 
-  constructor(private http: HttpClient, private youtubeService: YoutubeService) {
+  constructor(private http: HttpClient, private youtubeService: YoutubeService, private authService: AuthService) {
     this.http = http;
   }
 

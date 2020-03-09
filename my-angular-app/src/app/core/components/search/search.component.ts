@@ -55,7 +55,7 @@ export class SearchComponent implements OnInit {
   public searchRequest = new FormControl();
   public searchValue$: Observable<any>;
 
-  public tokenKey:string = 'AIzaSyCPDt9vha-8RV3SpAif4Px643j37p1ZijQ';
+  public tokenKey:string = 'AIzaSyCmVvW-G71IALwdJ7022x-eAa-keac80pc';
 
   constructor(public router: Router, private httpService: HttpSService,  private authService: AuthService) {}
 
