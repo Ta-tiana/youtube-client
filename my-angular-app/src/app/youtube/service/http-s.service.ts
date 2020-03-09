@@ -14,9 +14,7 @@ export class HttpSService {
   }
 
   public g(searchKey: string, tokenKey: string): any {
-    console.log(3);
-    const obj: any = this.http.get(`https://www.googleapis.com/youtube/
-    v3/search?part=snippet&key=${tokenKey}&q=${searchKey}&maxResults=50`);
+    const obj: any = this.http.get(`https://www.googleapis.com/youtube/v3/search?part=snippet&key=${tokenKey}&q=${searchKey}&maxResults=50`);
 
     obj.subscribe(response => {
       // @ts-ignore
@@ -25,9 +23,7 @@ export class HttpSService {
       const ids: any = response.items.map((item) => item.id.videoId
         || item.id.playlistId);
 
-      this.http.get(`https://www.googleapis.com/youtube/v3/
-      videos?id=${ids.join(',')}&maxResults=1&part=snippet,
-      contentDetails,statistics,status&key=${tokenKey}`)
+      this.http.get(`https://www.googleapis.com/youtube/v3/videos?id=${ids.join(',')}&maxResults=1&part=snippet,contentDetails,statistics,status&key=${tokenKey}`)
         .subscribe(res => {
           // @ts-ignore
           this.responseItems = res;

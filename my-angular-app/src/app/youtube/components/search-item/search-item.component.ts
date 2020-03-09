@@ -52,7 +52,7 @@ export class SearchItemComponent implements OnInit {
   public goToDetailedInfo(): void {
     instanceYoutubeService.setCardDataValue(this.itemData);
     this.cardId = this.itemData.id;
-    this.router.navigateByUrl(`results/${this.cardId}`).then(r => console.log(r)) ;
+    this.router.navigateByUrl(`results/${this.cardId}`).then(r => (r)) ;
   }
 
   public getString(value: number): string {

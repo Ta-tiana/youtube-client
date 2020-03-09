@@ -47,7 +47,6 @@ export class YoutubeService {
 
   public setResponseValue(response: SearchResults): void {
     this.response = response;
-    console.log(this.response);
   }
 
   public getResponseValue(): SearchResults {

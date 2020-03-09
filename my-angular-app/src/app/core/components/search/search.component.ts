@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { instanceYoutubeService } from '../../../youtube/service/youtube.service';
-import {Router} from '@angular/router';
-import {Observable} from 'rxjs';
-import {debounceTime, scan, filter, tap} from 'rxjs/operators';
-import {HttpSService} from '../../../youtube/service/http-s.service';
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { debounceTime, scan, filter } from 'rxjs/operators';
+import { HttpSService } from '../../../youtube/service/http-s.service';
 import { AuthService } from 'src/app/auth/services/auth.service';
 
 @Component({
@@ -54,13 +54,8 @@ export class SearchComponent implements OnInit {
   public newSortRequest: string = '';
   public searchRequest = new FormControl();
   public searchValue$: Observable<any>;
-  // public tokenKey:string = 'AIzaSyAvLz_fz5MGD_cxjOFrAz78mwwqvCAOBnk';
-  // public tokenKey:string = 'AIzaSyDqCcrfVpftL9ADlZNNQ2Qxaer7EEOwHPU';
-  // public tokenKey:string = 'AIzaSyCmVvW-G71IALwdJ7022x-eAa-keac80pc';
-  // public tokenKey:string = 'AIzaSyA7gD3q9-JIr8YWIuS_joeMPkSuw_lcI-4';
-  // public tokenKey:string = 'AIzaSyCPDt9vha-8RV3SpAif4Px643j37p1ZijQ';
-  public tokenKey: string = 'AIzaSyAApg64zhDrkCMUi3ZdR2eyv-N0yX4RNIM';
-  public searchKey: string = '';
+
+  public tokenKey:string = 'AIzaSyCPDt9vha-8RV3SpAif4Px643j37p1ZijQ';
 
   constructor(public router: Router, private httpService: HttpSService,  private authService: AuthService) {}
 
@@ -81,16 +76,11 @@ export class SearchComponent implements OnInit {
   }
 
   public redirectMainSearch(): void  {
-    console.log(2);
-    console.log(this.searchRequest.value);
     instanceYoutubeService.setInputValue(this.searchRequest.value);
 
     this.searchValue$ = this.searchRequest.valueChanges.pipe(
       filter((query) => query.length > 3 ),
-      tap(t => console.log(t)),
       debounceTime(500),
-      // startWith(this.current), // initial value
-      // tap(t => console.log(t))
       scan((acc, typingValue) => typingValue ? acc.concat(typingValue) : [], []),
     );
 
@@ -98,7 +88,7 @@ export class SearchComponent implements OnInit {
       this.httpService.g(x, this.tokenKey);
     });
 
-    this.router.navigateByUrl('/results').then(r => console.log(r));
+    this.router.navigateByUrl('/results').then(r => (r));
   }
 
   public settings(): void {
@@ -120,7 +110,7 @@ export class SearchComponent implements OnInit {
   }
 
   public login(): void {
-    this.router.navigateByUrl(`auth/login`).then(r => console.log(r));
+    this.router.navigateByUrl(`auth/login`).then(r => (r));
   }
 
   public isLogged(): boolean {
