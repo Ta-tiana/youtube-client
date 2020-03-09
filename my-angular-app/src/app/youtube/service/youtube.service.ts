@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import {response} from './../../../assets/object/object';
 import {SearchResults} from '../models/search-results/search-results.model';
 import {SearchItem} from '../models/search-item/search-item.model';
 
@@ -9,7 +8,7 @@ import {SearchItem} from '../models/search-item/search-item.model';
 
 export class YoutubeService {
 
-  public response: SearchResults = response;
+  public response: SearchResults;
   public cardData: SearchItem;
 
   public inputValue: string = '';
@@ -43,123 +42,129 @@ export class YoutubeService {
   public isRed: boolean = false;
   public isYellow: boolean = false;
 
-  constructor() { }
+  constructor() {
+  }
 
-   public getResponseValue(): SearchResults {
+  public setResponseValue(response: SearchResults): void {
+    this.response = response;
+    console.log(this.response);
+  }
+
+  public getResponseValue(): SearchResults {
     return this.response;
   }
 
-   public setInputValue(inputValue: string): void {
+  public setInputValue(inputValue: string): void {
 
     this.inputValue = inputValue;
     this.sortByDate = false;
     this.sortByView = false;
 
-    if (this.inputValue) {
+    if (this.inputValue.length > 3) {
       this.clicked = true;
     }
   }
 
-   public getInputValue(): string {
+  public getInputValue(): string {
     return this.inputValue;
   }
 
-   public setSortValue(sortInputValue: string): void {
+  public setSortValue(sortInputValue: string): void {
     this.sortInputValue = sortInputValue;
     this.sortByDate = false;
     this.sortByView = false;
   }
 
-   public getSortValue(): string {
+  public getSortValue(): string {
     return this.sortInputValue;
   }
 
-   public setSortByDateClicked(): void {
+  public setSortByDateClicked(): void {
     this.sortByDate = true;
     this.sortByView = false;
   }
 
-   public isSortByDateClicked(): boolean {
+  public isSortByDateClicked(): boolean {
     return this.sortByDate;
   }
 
-   public setSortByViewsClicked(): void {
+  public setSortByViewsClicked(): void {
     this.sortByView = true;
     this.sortByDate = false;
   }
 
-   public isSortByViewsClicked(): boolean {
+  public isSortByViewsClicked(): boolean {
     return this.sortByView;
   }
 
-   public setSettingsClicked(): void {
+  public setSettingsClicked(): void {
     this.settingsClicked = !this.settingsClicked;
   }
 
-   public isSettingsClicked(): boolean {
+  public isSettingsClicked(): boolean {
     return this.settingsClicked;
   }
 
-   public isMainSearchClicked(): boolean {
+  public isMainSearchClicked(): boolean {
     return this.clicked;
   }
 
-   public getColorByTimeValue(): object {
-     this.year = this.publishedTime.slice( 0, 4 );
-     this.month = this.publishedTime.slice( 5, 7 );
-     this.date = this.publishedTime.slice( 8, 10 );
+  public getColorByTimeValue(): object {
+    this.year = this.publishedTime.slice( 0, 4 );
+    this.month = this.publishedTime.slice( 5, 7 );
+    this.date = this.publishedTime.slice( 8, 10 );
 
-     this.isBlue = false;
-     this.isGreen = false;
-     this.isRed = false;
-     this.isYellow = false;
+    this.isBlue = false;
+    this.isGreen = false;
+    this.isRed = false;
+    this.isYellow = false;
 
-     this.past = new Date(+this.year, +this.month, +this.date, 12, 0, 0);
-     this.now = new Date();
-     this.time = this.now.getTime() - this.past.getTime();
+    this.past = new Date(+this.year, +this.month, +this.date, 12, 0, 0);
+    this.now = new Date();
+    this.time = this.now.getTime() - this.past.getTime();
 
-     this.daysLast = Math.floor(this.time / (1000 * 60 * 60 * 24));
+    this.daysLast = Math.floor(this.time / (1000 * 60 * 60 * 24));
 
-     this.dayOfWeek = this.past.getDay();
+    this.dayOfWeek = this.past.getDay();
 
-     if (this.daysLast < 7) {
-       this.isBlue = true;
+    if (this.daysLast < 7) {
+      this.isBlue = true;
 
-     } else if (this.daysLast >= 7 && this.daysLast <= 30) {
-       this.isYellow = true;
+    } else if (this.daysLast >= 7 && this.daysLast <= 30) {
+      this.isYellow = true;
 
-     } else if (this.daysLast > 30 && this.daysLast <= 180) {
-       this.isGreen = true;
+    } else if (this.daysLast > 30 && this.daysLast <= 180) {
+      this.isGreen = true;
 
-     } else if (this.daysLast > 180) {
-       this.isRed = true;
-     }
+    } else if (this.daysLast > 180) {
+      this.isRed = true;
+    }
 
-     return {
-       blue: this.isBlue,
-       green: this.isGreen,
-       red: this.isRed,
-       yellow: this.isYellow,
-     };
-   }
+    return {
+      blue: this.isBlue,
+      green: this.isGreen,
+      red: this.isRed,
+      yellow: this.isYellow,
+    };
+  }
 
   public setPublishedTimeValue(item: any): void {
     this.publishedTime = item.snippet.publishedAt;
   }
 
   public getYearValue(): string {
-      return this.year;
+    return this.year;
   }
 
   public getMonthValue(): string {
-      return this.month;
+    return this.month;
   }
 
   public getDateValue(): string {
-      return this.date;
+    return this.date;
   }
 
-  public getWeekDayInStringValue(day: string): string {
+  public getWeekDayInStringValue(day: number): string {
     return this.week[day];
   }
 
@@ -171,7 +176,7 @@ export class YoutubeService {
     this.cardData = card;
   }
 
-  public getCardDataValue(): any {
+  public getCardDataValue(): unknown {
     return this.cardData;
   }
 }

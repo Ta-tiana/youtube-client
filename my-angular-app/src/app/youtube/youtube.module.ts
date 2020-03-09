@@ -8,6 +8,7 @@ import { DetailedInformationComponent } from './pages/detailed-information/detai
 import { BoldDirective } from './directives/bold.directive';
 import {Page404Component} from './pages/page404/page404.component';
 import {YoutubeRoutingModule} from './youtube-routing.module';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,11 +21,14 @@ import {YoutubeRoutingModule} from './youtube-routing.module';
     FilteredCardsPipe
   ],
   imports: [
-    CommonModule, YoutubeRoutingModule
+    CommonModule,
+    YoutubeRoutingModule,
+    HttpClientModule
   ],
   exports: [
     SearchResultsComponent, MainComponent, DetailedInformationComponent, FilteredCardsPipe, BoldDirective
-  ]
+  ],
+  providers: []
 })
 
 export class YoutubeModule { }
