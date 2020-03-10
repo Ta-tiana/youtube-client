@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {instanceYoutubeService, YoutubeService} from '../../service/youtube.service';
 import {AuthService} from "../../../auth/services/auth.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-search-results',
@@ -24,7 +25,7 @@ import {AuthService} from "../../../auth/services/auth.service";
 export class SearchResultsComponent implements OnInit {
   message: string = '';
 
-  constructor(public youtubeService: YoutubeService, private authService: AuthService) { }
+  constructor(public youtubeService: YoutubeService, private authService: AuthService, private router: Router) { }
 
   public isClicked(): boolean {
     if (instanceYoutubeService.isMainSearchClicked()){
@@ -33,7 +34,6 @@ export class SearchResultsComponent implements OnInit {
         return true;
       }
       this.message = 'Пожалуйста, войдите под своим login!';
-      console.log(this.message.length);
       return false;
     }
   }
@@ -41,4 +41,3 @@ export class SearchResultsComponent implements OnInit {
   public ngOnInit(): void {
   }
 }
-

@@ -18,6 +18,7 @@ export class LoadingGuard implements CanLoad {
       this.router.navigate(['']).then(r => (r));
       return false;
     }
+    this.router.navigateByUrl('/results').then(r => (r));
     return true;
   }
 }
