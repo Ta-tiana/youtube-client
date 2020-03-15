@@ -18,7 +18,7 @@ export class AuthService {
   }
 
   public setToken(): void {
-    let count: number = 0;
+    let count = 0;
     localStorage.setItem('token', count.toString() );
     count++;
   }

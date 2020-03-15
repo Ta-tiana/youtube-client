@@ -143,5 +143,16 @@
       "check-type"
     ]
   },
-  "rulesDirectory": []
+  "rulesDirectory": [],
+  "linterOptions": {
+    "exclude": [
+      "src/environments/**/*",
+      "src/polyfills.ts",
+      "src/**/*test.ts",
+      "src/**/*spec.ts",
+      "dist/**/*",
+      "tmp/**/*",
+      "e2e/**/*"
+    ]
+  }
 }

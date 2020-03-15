@@ -14,7 +14,7 @@ export class FilteredCardsPipe implements PipeTransform {
 
   constructor() { }
 
-  public transform( allCards: SearchItem[] = instanceYoutubeService.getResponseValue()['items'] ):
+  public transform( allCards: SearchItem[] = instanceYoutubeService.getResponseValue().items ):
     SearchResults['items'] {
 
     if (allCards) {
