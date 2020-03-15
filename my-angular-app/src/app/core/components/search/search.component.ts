@@ -54,8 +54,8 @@ export class SearchComponent implements OnInit {
   public newSortRequest: string = '';
   public searchRequest = new FormControl();
   public searchValue$: Observable<any>;
+  public tokenKey:string = 'AIzaSyCiwEfZ14P9H2KjgGWijWhJGO8hHfGO2x4';
 
-  public tokenKey:string = 'AIzaSyA7gD3q9-JIr8YWIuS_joeMPkSuw_lcI-4';
 
   constructor(public router: Router, private httpService: HttpSService,  private authService: AuthService) {}
 
@@ -118,6 +118,5 @@ export class SearchComponent implements OnInit {
   }
 
   public ngOnInit(): void {
-
   }
 }

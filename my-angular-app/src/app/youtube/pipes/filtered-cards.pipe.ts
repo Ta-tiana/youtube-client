@@ -1,7 +1,7 @@
 import {Pipe, PipeTransform, Input} from '@angular/core';
 import {SearchResults} from '../models/search-results/search-results.model';
 import {instanceYoutubeService} from '../service/youtube.service';
-import {SearchItem} from "../models/search-item/search-item.model";
+import {SearchItem} from '../models/search-item/search-item.model';
 
 @Pipe( {
   name: 'filteredCards',
@@ -10,7 +10,7 @@ import {SearchItem} from "../models/search-item/search-item.model";
 
 export class FilteredCardsPipe implements PipeTransform {
 
-  @Input() public response : SearchResults;
+  @Input() public response: SearchResults;
 
   constructor() { }
 
