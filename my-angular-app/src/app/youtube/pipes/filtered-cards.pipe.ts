@@ -22,7 +22,8 @@ export class FilteredCardsPipe implements PipeTransform {
       if (instanceYoutubeService.isSortByDateClicked()) {
         if (instanceYoutubeService.getSortValue()) {
           return allCards
-            .filter(card => card.snippet.title.toLowerCase().indexOf(instanceYoutubeService.getSortValue()) !== -1)
+            .filter(card => card.snippet.title.toLowerCase()
+            .indexOf(instanceYoutubeService.getSortValue()) !== -1)
             .sort((dateCard1, dateCard2) => (
               Date.parse(dateCard1.snippet.publishedAt) - Date.parse(dateCard2.snippet.publishedAt)
             )).reverse();

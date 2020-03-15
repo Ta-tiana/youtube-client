@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {SearchResults} from '../models/search-results/search-results.model';
 import {SearchItem} from '../models/search-item/search-item.model';
-
+/* tslint:disable */
 @Injectable({
   providedIn: 'root'
 })

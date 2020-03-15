@@ -15,6 +15,7 @@ export class RegistrationComponent implements OnInit {
     this.router.navigateByUrl(`auth/login`).then(r => (r) ) ;
   }
 
+  // tslint:disable-next-line:no-any
   public SignIn(form: any): void {
     this.loginService.setRegInfoValue
     (

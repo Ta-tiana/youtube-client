@@ -52,7 +52,9 @@ import { AuthService } from 'src/app/auth/services/auth.service';
 export class SearchComponent implements OnInit {
 
   public newSortRequest: string = '';
+  // tslint:disable-next-line:typedef
   public searchRequest = new FormControl();
+  // tslint:disable-next-line:no-any
   public searchValue$: Observable<any>;
   public tokenKey: string = 'AIzaSyCiwEfZ14P9H2KjgGWijWhJGO8hHfGO2x4';
 

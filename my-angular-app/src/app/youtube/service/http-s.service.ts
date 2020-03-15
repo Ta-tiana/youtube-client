@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { SearchResults } from '../models/search-results/search-results.model';
 import { YoutubeService } from './youtube.service';
-import { AuthService } from 'src/app/auth/services/auth.service';
+/* tslint:disable */
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +10,9 @@ import { AuthService } from 'src/app/auth/services/auth.service';
 export class HttpSService {
   public responseItems: SearchResults;
 
-  constructor(private http: HttpClient, private youtubeService: YoutubeService, private authService: AuthService) {
+  constructor(private http: HttpClient,
+              private youtubeService:
+                YoutubeService) {
     this.http = http;
   }
 
@@ -18,9 +20,8 @@ export class HttpSService {
     const obj: any = this.http.get(`https://www.googleapis.com/youtube/v3/search?part=snippet&key=${tokenKey}&q=${searchKey}&maxResults=50`);
 
     obj.subscribe(response => {
-      // @ts-ignore
+
       response.pageInfo.resultsPerPage = 50;
-      // @ts-ignore
       const ids: any = response.items.map((item) => item.id.videoId
         || item.id.playlistId);
 

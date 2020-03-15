@@ -25,7 +25,8 @@ import {Router} from '@angular/router';
 export class SearchResultsComponent implements OnInit {
   public message: string = '';
 
-  constructor(public youtubeService: YoutubeService, private authService: AuthService, private router: Router) { }
+  constructor(public youtubeService: YoutubeService,
+              private authService: AuthService) { }
 
   public isClicked(): boolean {
     if (instanceYoutubeService.isMainSearchClicked()) {

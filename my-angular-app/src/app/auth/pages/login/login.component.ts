@@ -20,6 +20,7 @@ export class LoginComponent implements OnInit {
     this.router.navigateByUrl(`auth/registration`).then(r => (r)) ;
   }
 
+  // tslint:disable-next-line:no-any
   public logIn(form: any): void {
     this.loginService.setLogInfoValue(form.__ngContext__[28].value, form.__ngContext__[33].value);
     if (this.loginService.isInfoEqual()) {
