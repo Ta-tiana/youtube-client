@@ -1,0 +1,104 @@
+.registration-form {
+  margin: 40px auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 344px;
+  height: 392px;
+  padding: 20px;
+  background-color: #F2F2F2;
+  text-align: start;
+  border-radius: 5px;
+  box-shadow: 2px 0 3px 0 rgba(10, 10, 10, 0.1);
+}
+
+.registration-form h3 {
+  text-align: start;
+  padding-left: 20px;
+}
+
+.registration-form form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;height: 260px;
+}
+
+  .registration-form input{
+  width: 304px;
+  height: 36px;
+  border:1px solid #E0E0E0;
+  background: #E0E0E0;
+}
+
+.registration-form input::-webkit-input-placeholder {
+  color: #c2c2c2;
+}
+
+.registration-form input:focus::-webkit-input-placeholder {
+  color: transparent;
+}
+
+.auth-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 20px;
+  height: 70px;
+  box-sizing: border-box;
+}
+
+.login {
+  width:150px;
+  height:30px;
+  text-decoration: #2F80ED underline;
+  background-color: #F2F2F2;
+  border: 1px solid #F2F2F2;
+}
+
+.registration
+{
+  width:150px;
+  height:30px;
+  border: 1px solid #2F80ED;
+  color: #FFFFFF;
+  background-color: #2F80ED;
+  border-radius: 5px;
+  box-shadow: 2px 0 3px 0 rgba(47, 128, 237, 0.48);
+  background-size: 60%;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 0;
+}
+
+.registration:hover
+{
+  border:1px solid #0580ED;
+  color: #FFFFFF;
+  background-color: #0580ED;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.registration:active
+{
+  border:1px solid #27AE60;
+  color: #FFFFFF;
+  background-color: #27AE60;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.login:hover
+{
+  color: #0580ED;
+  cursor: pointer;
+  outline: none;
+}
+
+.login:active
+{
+  color: #27AE60;
+  cursor: pointer;
+  outline: none;
+}

@@ -68,7 +68,7 @@
       "timeEnd",
       "trace"
     ],
-    "no-inferrable-types": [true, "ignore-params", "ignore-properties"],
+    "no-inferrable-types": [false, "ignore-params", "ignore-properties"],
     "no-construct": true,
     "no-parameter-properties": false,
     "no-debugger": true,
@@ -143,5 +143,16 @@
       "check-type"
     ]
   },
-  "rulesDirectory": []
+  "rulesDirectory": [],
+  "linterOptions": {
+    "exclude": [
+      "src/environments/**/*",
+      "src/polyfills.ts",
+      "src/**/*test.ts",
+      "src/**/*spec.ts",
+      "dist/**/*",
+      "tmp/**/*",
+      "e2e/**/*"
+    ]
+  }
 }

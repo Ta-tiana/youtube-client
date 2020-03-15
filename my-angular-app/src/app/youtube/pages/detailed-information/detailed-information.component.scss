@@ -1,0 +1,125 @@
+.card-wrapper{
+  display: flex;
+  justify-content: space-between;
+  width: 1200px;
+  margin: 40px auto;
+}
+
+.card-info{
+  display: flex;
+  justify-content: space-between;
+  height: 461px;
+  border-radius: 0 0 0 5px;
+  box-sizing: border-box;
+}
+
+.card-image{
+  width: 729px;
+}
+
+.card-image>img{
+  width: 729px;
+  height: 461px;
+}
+
+.card-title{
+  font-size: 24px;
+  line-height: 28px;
+  color: #000000;
+  margin: 15px 0;
+}
+
+.card-description{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 436px;
+  font-size: 12px;
+  line-height: 14px;
+  height: 100%;
+  background-color: #E5E5E5;
+  color: #828282;
+  padding: 20px;
+  box-sizing: border-box;
+  border-radius: 0 5px 5px 0;
+  text-overflow: ellipsis
+}
+
+.card-description > div>div:first-child>p{
+ text-align: end;
+}
+
+.back {
+  width:32px;
+  height:32px;
+  border: 0.5px solid #2F80ED;
+  color: #FFFFFF;
+  background-color: #2F80ED;
+  border-radius: 5px;
+  box-shadow: 2px 0 3px 0 rgba(47, 128, 237, 0.48);
+  background-image: url(../../../../assets/images/back.png);
+  background-size: 60%;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 0;
+}
+
+.back:hover, {
+  border:1px solid #0580ED;
+  color: #FFFFFF;
+  background-color: #0580ED;
+  cursor: pointer;
+}
+
+.back:active
+{
+  border:1px solid #27AE60;
+  color: #FFFFFF;
+  background-color: #27AE60;
+  cursor: pointer;
+}
+
+.card-description-text{
+  text-align: start;
+  font-size: 12px;
+  line-height: 14px;
+  color: #828282;
+  text-overflow: ellipsis;
+}
+
+.card-description-header{
+  text-align: start ;
+  font-size: 14px;
+  line-height: 16px;
+  color: #000000;
+  margin-bottom: 5px;
+}
+
+.card-statistic{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.blue{
+  border-bottom: 5px solid #2F80ED;
+  box-shadow: 5px 5px 20px rgba(47, 128, 237, 0.25);
+  border-radius: 0 0 5px 5px;
+}
+
+.green{
+  border-bottom: 5px solid #27AE60;
+  box-shadow: 5px 5px 20px rgba(39, 174, 96, 0.25);
+  border-radius: 0 0 5px 5px;
+}
+
+.red{
+  border-bottom: 5px solid #ED4A3A;
+  box-shadow: 5px 5px 20px rgba(237, 74, 58, 0.25);
+  border-radius: 0 0 5px 5px;
+}
+
+.yellow{
+  border-bottom: 5px solid #EDE745;
+  box-shadow: 5px 5px 20px rgba(237, 231, 69, 0.25);
+  border-radius: 0 0 5px 5px;
+}
